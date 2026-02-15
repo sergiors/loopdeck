@@ -34,7 +34,6 @@ export function Metronome({ isPlaying, className }: MetronomeProps) {
     }
   }
 
-  // click sonoro
   const playClick = (time: number, accent = false) => {
     const ctx = audioCtxRef.current
     if (!ctx) return
@@ -85,7 +84,6 @@ export function Metronome({ isPlaying, className }: MetronomeProps) {
   const handleTapTempo = () => {
     const now = performance.now()
 
-    // reset se demorou muito entre taps
     if (
       tapTimesRef.current.length &&
       now - tapTimesRef.current.at(-1)! > 2000
@@ -118,7 +116,6 @@ export function Metronome({ isPlaying, className }: MetronomeProps) {
 
   return (
     <div className={cn('flex items-center gap-4', className)}>
-      {/* ON/OFF */}
       <div className="flex items-center gap-2">
         <Switch checked={enabled} onCheckedChange={setEnabled} />
         <span className="text-sm">Metronome</span>
